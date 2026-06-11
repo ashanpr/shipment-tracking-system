@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dispatcher Dashboard</title>
+</head>
+
+<body>
+
+    <h1>Dispatcher Dashboard</h1>
+
+    <table border="1">
+
+        <tr>
+            <th>Tracking Number</th>
+            <th>Status</th>
+            <th>Location</th>
+            <th>Update</th>
+        </tr>
+
+        {% for shipment in shipments %}
+
+        <tr>
+
+            <td>{{ shipment[1] }}</td>
+
+            <td>{{ shipment[2] }}</td>
+
+            <td>{{ shipment[3] }}</td>
+
+            <td>
+
+                <form method="POST">
+
+                    <input
+                        type="hidden"
+                        name="shipment_id"
+                        value="{{ shipment[0] }}">
+
+                    <select name="status">
+
+                        <option>In Transit</option>
+
+                        <option>Out for Delivery</option>
+
+                        <option>Delivered</option>
+
+                    </select>
+
+                    <button type="submit">
+                        Update
+                    </button>
+
+                </form>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>

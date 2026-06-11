@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shipment Tracking Portal</title>
+</head>
+
+<body>
+
+    <h1>Shipment Tracking Portal</h1>
+
+    <form method="POST">
+
+        <label>Tracking Number:</label>
+
+        <input
+            type="text"
+            name="tracking_number"
+            placeholder="TRK001"
+            required>
+
+        <button type="submit">
+            Track Shipment
+        </button>
+
+    </form>
+
+    {% if shipment %}
+
+        <h2>Shipment Details</h2>
+
+        <p><strong>Tracking Number:</strong> {{ shipment[0] }}</p>
+
+        <p><strong>Status:</strong> {{ shipment[1] }}</p>
+
+        <p><strong>Location:</strong> {{ shipment[2] }}</p>
+
+    {% endif %}
+
+</body>
+</html>
